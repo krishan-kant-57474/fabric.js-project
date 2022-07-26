@@ -1,4 +1,3 @@
-console.log("I am best");
 let imgpresent = false;
 //create instaces of favric canvas.......................................................
 
@@ -29,14 +28,14 @@ const inputFile = document
   .getElementById("myImg")
   .addEventListener("change", function (e) {
     resetImg = canvas.viewportTransform;
-    console.log(resetImg);
+    // console.log(resetImg);
     resetImg[0] = 1;
     resetImg[1] = 0;
     resetImg[2] = 0;
     resetImg[3] = 1;
     resetImg[4] = 0;
     resetImg[5] = 0;
-    console.log(resetImg);
+    // console.log(resetImg);
 
     reader.readAsDataURL(this.files[0]);
     imgpresent = true;
@@ -64,13 +63,13 @@ canvas.on("mouse:wheel", function (event) {
     var zoom = canvas.getZoom();
     zoom *= 0.9995 ** delta;
     if (zoom > 100) zoom = 100;
-    console.log(zoom);
+    // console.log(zoom);
     if (zoom < 1) zoom = 1;
     canvas.zoomToPoint({ x: event.e.offsetX, y: event.e.offsetY }, zoom);
     event.e.preventDefault();
     event.e.stopPropagation();
     var vpt = this.viewportTransform;
-    console.log(vpt[4]);
+    // console.log(vpt[4]);
     if (vpt[4] >= 0) {
       vpt[4] = 0;
     } else if (vpt[4] < canvas.getWidth() - 900 * zoom) {
@@ -87,7 +86,6 @@ canvas.on("mouse:wheel", function (event) {
 
 //toggle zoom curser
 const toggleMode = () => {
-  console.log("hiii");
   if (imgpresent === false) {
     imgpresent = true;
   } else {
